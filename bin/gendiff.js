@@ -5,6 +5,12 @@ program
   .name('gendiff')
   .description('Поиск отличий')
   .version('1.0.0')
-
-program.parse(process.argv);
+  .option('-f, --format [pathFile]', 'output format')
+  .argument('fileOnePath', 'Specify the path to the first file')
+  .argument('fileTwoPath', 'Specify the path to the second file')
+  .action((fileOnePath, fileTwoPath) => {
+    console.log('fileOnePath:', fileOnePath);
+    console.log('fileTwoPath:', fileTwoPath);
+  })
+  .parse();
 
