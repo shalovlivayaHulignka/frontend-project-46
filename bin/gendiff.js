@@ -8,8 +8,7 @@ program
   .description('Поиск отличий')
   .version('1.0.0')
   .option('-f, --format [pathFile]', 'output format')
-  .argument('fileOnePath', 'Specify the path to the first file')
-  .argument('fileTwoPath', 'Specify the path to the second file')
+  .arguments('<fileOnePath> <fileTwoPath>')
   .action((fileOnePath, fileTwoPath) => getDiff(fileOnePath, fileTwoPath))
   .parse();
 
