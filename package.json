@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "type": "module",
-  "bin" : {
+  "bin": {
     "gendiff": "bin/gendiff.js"
   },
   "dependencies": {
