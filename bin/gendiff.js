@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { Command } from 'commander';
 const program = new Command();
 
@@ -7,8 +8,9 @@ program
   .name('gendiff')
   .description('Поиск отличий')
   .version('1.0.0')
-  .option('-f, --format [pathFile]', 'output format')
+  .option('-f, --format <type>', 'output format', 'stylish')
   .arguments('<fileOnePath> <fileTwoPath>')
-  .action((fileOnePath, fileTwoPath) => getDiff(fileOnePath, fileTwoPath))
-  .parse();
+  .action((fileOnePath, fileTwoPath) => console.log(getDiff(fileOnePath, fileTwoPath, program.opts().format)));
+
+program.parse();
 

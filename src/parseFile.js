@@ -1,8 +1,10 @@
 import fs from 'fs';
+import YAML from 'yaml';
 import * as path from 'path';
 
 const parses = {
   json: JSON.parse,
+  yaml: YAML.parse
 }
 
 const parseFile = (filePath) => {
