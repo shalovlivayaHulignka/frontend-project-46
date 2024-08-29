@@ -8,7 +8,7 @@ program
   .name('gendiff')
   .description('Поиск отличий')
   .version('1.0.0')
-  .option('-f, --format <type>', 'output format')
+  .option('-f, --format <type>', 'output format', 'stylish')
   .arguments('<fileOnePath> <fileTwoPath>')
   .action((fileOnePath, fileTwoPath) => console.log(getDiff(fileOnePath, fileTwoPath, program.opts().format)));
 
