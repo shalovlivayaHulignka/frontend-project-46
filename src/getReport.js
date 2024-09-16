@@ -1,8 +1,8 @@
 const report = (data) => {
   const result = data.flatMap((item) => {
-    const {name, type, value} = item;
+    const { name, type, value } = item;
 
-    switch(type) {
+    switch (type) {
       case 'added':
         return ` + ${name}: ${value}`;
       case 'deleted':
