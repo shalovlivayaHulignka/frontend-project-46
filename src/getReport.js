@@ -1,18 +1,20 @@
 const report = (data) => {
   const result = data.flatMap((item) => {
     const { name, type, value } = item;
+    const spaseCount = 2;
+    const str = ' ';
 
     switch (type) {
       case 'added':
-        return ` + ${name}: ${value}`;
+        return `${str.repeat(spaseCount)}+ ${name}: ${value}`;
       case 'deleted':
-        return ` - ${name}: ${value}`;
+        return `${str.repeat(spaseCount)}- ${name}: ${value}`;
       case 'changed':
-        const strOne = ` - ${name}: ${value.before}`;
-        const strTwo = ` + ${name}: ${value.after}`;
+        const strOne = `${str.repeat(spaseCount)}- ${name}: ${value.before}`;
+        const strTwo = `${str.repeat(spaseCount)}+ ${name}: ${value.after}`;
         return [strOne, strTwo];
       default:
-        return `   ${name}: ${value}`;
+        return `${str.repeat(spaseCount * 2)}${name}: ${value}`;
     }
   });
   return `{\n${result.join('\n')}\n}`;
