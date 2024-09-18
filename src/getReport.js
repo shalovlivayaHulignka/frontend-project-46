@@ -1,20 +1,18 @@
-const report = (data) => {
+const getIndentation = (depth, string = ' ', spaseCount = 2) => string.repeat(depth * spaseCount);
+
+const report = (data, formatName, depth = 1) => {
   const result = data.flatMap((item) => {
     const { name, type, value } = item;
-    const spaseCount = 2;
-    const str = ' ';
 
     switch (type) {
       case 'added':
-        return `${str.repeat(spaseCount)}+ ${name}: ${value}`;
+        return `${getIndentation(depth)}+ ${name}: ${value}`;
       case 'deleted':
-        return `${str.repeat(spaseCount)}- ${name}: ${value}`;
+        return `${getIndentation(depth)}- ${name}: ${value}`;
       case 'changed':
-        const strOne = `${str.repeat(spaseCount)}- ${name}: ${value.before}`;
-        const strTwo = `${str.repeat(spaseCount)}+ ${name}: ${value.after}`;
-        return [strOne, strTwo];
+        return `${getIndentation(depth)}- ${name}: ${value.before}\n${getIndentation(depth)}+ ${name}: ${value.after}`;
       default:
-        return `${str.repeat(spaseCount * 2)}${name}: ${value}`;
+        return `${getIndentation(depth)}  ${name}: ${value}`;
     }
   });
   return `{\n${result.join('\n')}\n}`;
