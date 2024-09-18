@@ -5,7 +5,7 @@ import * as path from 'path';
 const parses = {
   json: JSON.parse,
   yaml: YAML.parse,
-  yml:  YAML.parse,
+  yml: YAML.parse,
 };
 
 const parseFile = (filePath) => {
