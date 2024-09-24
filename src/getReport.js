@@ -1,6 +1,20 @@
-const getIndentation = (depth, string = ' ', spaseCount = 2) => string.repeat(depth * spaseCount);
+import _ from 'lodash';
 
-const report = (data, formatName, depth = 1) => {
+const getIndentation = (depth, string = ' ', spaseCount = 4) => string.repeat((depth * spaseCount) - 2);
+
+const string = (value, depth = 1) => {
+  if (!_.isObject(value)) {
+    return value;
+  }
+  const keys = Object.keys(value);
+  const result = keys.map((key) => {
+    const newKey = value[key];
+    return `${getIndentation(depth + 1)}  ${key}: ${string(newKey, depth + 1)}`;
+  });
+  return `{\n${result.join('\n')}\n  ${getIndentation(depth)}}`;
+};
+
+const report = (data, formatName) => {
   const iter = (node, depth = 1) => {
     const result = node.map((item) => {
       const { name, type, value } = item;
@@ -9,14 +23,14 @@ const report = (data, formatName, depth = 1) => {
           return `${getIndentation(depth)}  ${name}: {\n${iter(item.children, depth + 1)}\n${getIndentation(depth)}  }`;
         }
         case 'added':
-          return `${getIndentation(depth)}+ ${name}: ${value}`;
+          return `${getIndentation(depth)}+ ${name}: ${string(value, depth)}`;
         case 'deleted':
-          return `${getIndentation(depth)}- ${name}: ${value}`;
+          return `${getIndentation(depth)}- ${name}: ${string(value, depth)}`;
 
         case 'changed':
-          return `${getIndentation(depth)}- ${name}: ${value.before}\n${getIndentation(depth)}+ ${name}: ${value.after}`;
+          return `${getIndentation(depth)}- ${name}: ${string(value.before, depth)}\n${getIndentation(depth)}+ ${name}: ${string(value.after, depth)}`;
         default:
-          return `${getIndentation(depth)}  ${name}: ${value}`;
+          return `${getIndentation(depth)}  ${name}: ${string(value, depth)}`;
       }
     });
     return result.join('\n');
