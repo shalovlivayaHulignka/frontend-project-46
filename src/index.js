@@ -1,6 +1,6 @@
 import parseFile from './parseFile.js';
 import getDifferenceTree from './getDifferenceTree.js';
-import getReport from './getReport.js';
+import getReport from './stylish.js';
 
 const genDiff = (pathOne, pathTwo, formatName = 'stylish') => {
   const dataOne = parseFile(pathOne);

@@ -14,7 +14,7 @@ const string = (value, depth = 1) => {
   return `{\n${result.join('\n')}\n  ${getIndentation(depth)}}`;
 };
 
-const report = (data, formatName) => {
+const stylish = (data, formatName) => {
   const iter = (node, depth = 1) => {
     const result = node.map((item) => {
       const { name, type, value } = item;
@@ -38,4 +38,4 @@ const report = (data, formatName) => {
   return `{\n${iter(data)}\n}`;
 };
 
-export default report;
+export default stylish;
