@@ -23,3 +23,6 @@ Options:
 
 ### Comparison of flat objects:
 https://asciinema.org/a/ckFfBHqfQXApWRXkDj83gVkXW
+
+### Comparison of nested objects:
+https://asciinema.org/a/yvNUoqhc1SC9dtTTRuZHZc5Ef
