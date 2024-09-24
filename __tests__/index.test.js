@@ -10,7 +10,7 @@ const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', 
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
 test('Default formater.', () => {
-    const expected = readFile('stylishFlatResult.txt');
-    const actual = genDiff(getFixturePath('file1.json'), getFixturePath('file4.yaml'));
-    expect(actual).toEqual(expected);
+  const expected = readFile('stylishFlatResult.txt');
+  const actual = genDiff(getFixturePath('file1.json'), getFixturePath('file4.yaml'));
+  expect(actual).toEqual(expected);
 });
