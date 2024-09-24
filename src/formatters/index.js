@@ -1,7 +1,11 @@
-import stylish from "./stylish.js";
+import stylish from './stylish.js';
+import plain from './plain.js';
 
 export default (data, formatName) => {
-    if (formatName === 'stylish') {
-        return stylish(data);
-    }
+  switch (formatName) {
+    case 'plain':
+      return plain(data);
+    default:
+      return stylish(data);
+  }
 };
