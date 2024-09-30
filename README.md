@@ -26,3 +26,6 @@ https://asciinema.org/a/ckFfBHqfQXApWRXkDj83gVkXW
 
 ### Comparison of nested objects:
 https://asciinema.org/a/yvNUoqhc1SC9dtTTRuZHZc5Ef
+
+## Comparison plain:
+https://asciinema.org/a/QkTPv1ouwmZirVaV0I0uGzTXk
