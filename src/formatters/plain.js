@@ -10,7 +10,9 @@ const string = (value) => {
 const plain = (data) => {
   const iter = (node, path = '') => {
     const result = node.flatMap((item) => {
-      const { type, value, name, children } = item;
+      const {
+        type, value, name, children,
+      } = item;
       const currentPath = path ? `${path}.${name}` : name;
       const hasChildren = !!children;
 
