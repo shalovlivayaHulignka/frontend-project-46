@@ -11,6 +11,7 @@ const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8'
 
 const fileResultStylish = readFile('result_stylish.txt');
 const fileResultPlain = readFile('result_plain.txt');
+const fileResultJson = readFile('result_json.txt');
 
 const fileJsonOne = './__fixtures__/fileOne.json';
 const fileJsonTwo = './__fixtures__/fileTwo.json';
@@ -21,5 +22,6 @@ describe('comparing  files', () => {
   test('Formater.', () => {
     expect(genDiff(fileJsonOne, fileJsonTwo)).toEqual(fileResultStylish);
     expect(genDiff(fileYamlOne, fileYamlTwo, 'plain')).toEqual(fileResultPlain);
+    expect(genDiff(fileJsonOne, fileJsonTwo, 'json')).toEqual(fileResultJson);
   });
 });
