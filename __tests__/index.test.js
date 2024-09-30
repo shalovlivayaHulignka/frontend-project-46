@@ -19,8 +19,7 @@ const fileYamlTwo = './__fixtures__/fileTwo.yaml';
 
 describe('comparing  files', () => {
   test('Formater.', () => {
-    expect(genDiff(fileYamlOne, fileYamlTwo)).toEqual(fileResultStylish);
+    expect(genDiff(fileJsonOne, fileJsonTwo)).toEqual(fileResultStylish);
     expect(genDiff(fileYamlOne, fileYamlTwo, 'plain')).toEqual(fileResultPlain);
   });
 });
-
