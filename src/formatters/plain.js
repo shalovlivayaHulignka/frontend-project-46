@@ -27,8 +27,10 @@ const plain = (data) => {
           return `Property '${currentPath}' was added with value: ${string(value)}`;
         case 'changed':
           return `Property '${currentPath}' was updated. From ${string(value.before)} to ${string(value.after)}`;
+        case 'unchanged':
+          return null;
         default:
-          return '';
+          throw new Error(`Unknown type ${type}`);
       }
     });
 

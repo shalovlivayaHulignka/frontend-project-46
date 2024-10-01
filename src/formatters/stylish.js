@@ -29,8 +29,10 @@ const stylish = (data) => {
 
         case 'changed':
           return `${getIndentation(depth)}- ${name}: ${string(value.before, depth)}\n${getIndentation(depth)}+ ${name}: ${string(value.after, depth)}`;
-        default:
+        case 'unchanged':
           return `${getIndentation(depth)}  ${name}: ${string(value, depth)}`;
+        default:
+          throw new Error(`Unknown type of node '${type}'.`);
       }
     });
     return result.join('\n');
