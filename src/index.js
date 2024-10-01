@@ -8,7 +8,7 @@ const getAbsoluteFilePath = (filePath) => path.resolve(process.cwd(), filePath);
 const getFormat = (filePath) => path.extname(filePath).slice(1);
 const readFile = (filePath) => fs.readFileSync(filePath, 'utf-8');
 
-const genDiff = (pathOne, pathTwo, formatName) => {
+const genDiff = (pathOne, pathTwo, formatName = 'stylish') => {
   const filePathOne = getAbsoluteFilePath(pathOne);
   const filePathTwo = getAbsoluteFilePath(pathTwo);
 

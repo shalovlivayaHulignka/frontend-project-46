@@ -14,13 +14,10 @@ const plain = (data) => {
         type, value, name, children,
       } = item;
       const currentPath = path ? `${path}.${name}` : name;
-      const hasChildren = !!children;
-
-      if (hasChildren) {
-        return iter(children, currentPath);
-      }
 
       switch (type) {
+        case 'nested':
+          return iter(children, currentPath);
         case 'deleted':
           return `Property '${currentPath}' was removed`;
         case 'added':
@@ -28,7 +25,7 @@ const plain = (data) => {
         case 'changed':
           return `Property '${currentPath}' was updated. From ${string(value.before)} to ${string(value.after)}`;
         case 'unchanged':
-          return null;
+          return '';
         default:
           throw new Error(`Unknown type ${type}`);
       }
